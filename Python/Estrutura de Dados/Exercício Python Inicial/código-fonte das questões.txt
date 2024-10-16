@@ -1,0 +1,62 @@
+//1 questão// 
+
+def menor_maior(seq):
+    # Retorna o menor e o maior número da sequência
+    return min(seq), max(seq)
+
+# Chamada da função
+print(menor_maior([3, 1, 4, 1, 5, 9]))
+
+
+//2 questão// 
+
+def soma_quadrados(n):
+    # Calcula a soma dos quadrados dos números menores que n
+    return sum(i ** 2 for i in range(n))
+
+# Chamada da função
+print(soma_quadrados(5))
+
+
+//3 questão//
+
+def soma_quadrados_pares(n):
+    # Calcula a soma dos quadrados dos números pares menores que n
+    return sum(i ** 2 for i in range(n) if i % 2 == 0)
+
+# Chamada da função
+print(soma_quadrados_pares(10))
+
+
+//4 questão//
+
+def todos_diferentes(seq):
+    # Usa um conjunto para rastrear os números já vistos
+    vistos = set()
+    
+    # Itera sobre a sequência
+    for num in seq:
+        if num in vistos:
+            return False
+        vistos.add(num)
+    
+    return True
+
+# Chamada da função
+print(todos_diferentes([1, 2, 3, 4]))
+print(todos_diferentes([1, 2, 3, 2]))
+
+
+//5 questão//
+
+import random
+
+def aniversario_paradoxo(n):
+    # Função que testa o paradoxo do aniversário
+    aniversarios = [random.randint(1, 365) for _ in range(n)]
+    return len(aniversarios) != len(set(aniversarios))
+
+# Rodar testes para diferentes valores de n
+for n in range(5, 105, 5):
+    resultado = sum(aniversario_paradoxo(n) for _ in range(100)) / 100
+    print(f'{n} pessoas: {resultado*100:.2f}% de chance de duas pessoas compartilharem o mesmo aniversário.')
